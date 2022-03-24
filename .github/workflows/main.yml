@@ -14,7 +14,7 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id # 自己点的 start
     steps:
       # 默认安装有 python 环境
-      - name: Install Python requests beautifulsoup4
+      - name: Install Python requests
         run: |
           pip3 install requests        
       - name: Checkout
