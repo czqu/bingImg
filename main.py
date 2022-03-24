@@ -9,6 +9,11 @@ def GetPic():
     start_date = json_data['images'][0]['startdate']
     open(r'./json/today.json', 'wb').write(api.content)
     open(r'./json/{0}.json'.format(start_date), 'wb').write(api.content)
+    pic_json = dict()
+    pic_json['imgurl'] = pic_url
+    pic_json['copyright'] = json_data['images'][0]['copyright']
+    open(r'./json/{0}-simple.json'.format(start_date), 'wb').write(pic_json)
+    open(r'./json/today-simple.json'.format(start_date), 'wb').write(pic_json)
     print('Create Json Success!')
     pic = get(pic_url, stream=True)
     if(pic.status_code == 200):
