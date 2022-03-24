@@ -40,4 +40,4 @@ jobs:
           TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           github_token: $TOKEN
-          branch: master
+          branch: main
