@@ -25,7 +25,7 @@ jobs:
      
       - name: Save time
         run: |
-          echo `date +"%Y-%m-%d %H:%M:%S"` begin > log.txt            
+          echo `date +"%Y-%m-%d %H:%M:%S"` begin >> log.txt            
       # 上传新的更改到仓库        
       - name: Commit 
         run: |
