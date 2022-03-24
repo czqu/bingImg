@@ -12,8 +12,8 @@ def GetPic():
     pic_json = dict()
     pic_json['imgurl'] = pic_url
     pic_json['copyright'] = json_data['images'][0]['copyright']
-    open(r'./json/{0}-simple.json'.format(start_date), 'wb').write(pic_json)
-    open(r'./json/today-simple.json'.format(start_date), 'wb').write(pic_json)
+    open(r'./json/{0}-simple.json'.format(start_date), 'wb').write(json.dumps(pic_json).encode('utf-8'))
+    open(r'./json/today-simple.json'.format(start_date), 'wb').write(json.dumps(pic_json).encode('utf-8'))
     print('Create Json Success!')
     pic = get(pic_url, stream=True)
     if(pic.status_code == 200):
