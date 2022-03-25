@@ -2,8 +2,9 @@ import json
 from requests import get
 
 def GetPic():
+    headers = {'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'}
     api_url = r'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1'
-    api = get(api_url)
+    api = get(api_url,headers=headers)
     json_data = json.loads(api.text)
     pic_url = r'https://www.bing.com{0}'.format(json_data['images'][0]['url'])
     start_date = json_data['images'][0]['startdate']
