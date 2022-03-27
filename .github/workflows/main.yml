@@ -14,9 +14,10 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id # 自己点的 start
     steps:
       # 默认安装有 python 环境
-      - name: Install Python requests
+      - name: Install Python env
         run: |
-          pip3 install requests        
+          pip3 install requests
+          pip3 install pillow         
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Get Img

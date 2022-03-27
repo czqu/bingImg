@@ -1,5 +1,6 @@
 import json
 from requests import get
+from PIL import Image
 
 def GetPic():
     headers = {'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'}
@@ -21,6 +22,8 @@ def GetPic():
     pic = get(pic_url, stream=True,headers=headers)
     if(pic.status_code == 200):
         open(r'./pic/today.png', 'wb').write(pic.content)
+        im = Image.open('./pic/today.png')
+        im.save("./pic/today.webp", "WEBP")
         open(r'./pic/{0}.png'.format(start_date), 'wb').write(pic.content)
         open(r'./pic/{0}.png'.format(fullstartdate), 'wb').write(pic.content)
         print('Create Image Success!')
